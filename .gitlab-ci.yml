@@ -1,0 +1,36 @@
+---
+image: docker:git
+
+stages:
+  - build changed images
+  - build all images
+
+build-changed-image:
+  stage: build changed images
+  script:
+
+    - |
+      # figure out changes
+      topdirlist=$(git diff --name-only $(git rev-parse HEAD~1) $(git rev-parse HEAD) | sed -e "s|/.*||g" | sort -u)
+      echo "top level directory candidates with changed files: $topdirlist"
+      
+      # on master branch, we also trigger publishing the image
+      if [ $CI_COMMIT_REF_NAME == 'master' ]; then
+        export PUSH_TO_REPOSITORY=$CI_DOCKER_REPOSITORY_PUBLISH
+      fi
+
+      # try to build all changed top level directories
+      ./build_and_push.sh $topdirlist
+
+build-all-images:
+  stage: build all images
+  when: manual
+  script:
+    - |
+      # on master branch, we also trigger publishing the image
+      if [ $CI_COMMIT_REF_NAME == 'master' ]; then
+        export PUSH_TO_REPOSITORY=$CI_DOCKER_REPOSITORY_PUBLISH
+      fi
+
+      # build all nb-directories
+      ./build_and_push.sh nb-*
