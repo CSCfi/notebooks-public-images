@@ -1,6 +1,6 @@
 FROM rocker/ropensci
 
-LABEL MAINTAINER "CSC Notebooks Team <notebooks-admin@csc.fi>"
+LABEL org.opencontainers.image.authors="CSC Notebooks Team <notebooks-admin@csc.fi>"
 
 USER root
 
