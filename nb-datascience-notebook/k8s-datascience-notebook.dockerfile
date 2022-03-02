@@ -1,15 +1,12 @@
-FROM jupyter/minimal-notebook
+FROM jupyter/datascience-notebook
 
 LABEL org.opencontainers.image.authors="CSC Notebooks Team <notebooks-admin@csc.fi>"
 
 USER root
 
-ENV HOME /home/$NB_USER
-
 RUN echo "ssh-client and less from apt" \
-    && apt-get update -y\
+    && apt-get update \
     && apt-get install -y ssh-client less \
-    && apt-get clean -y
+    && apt-get clean
 
-# Switch back to jovyan user
 USER $NB_USER

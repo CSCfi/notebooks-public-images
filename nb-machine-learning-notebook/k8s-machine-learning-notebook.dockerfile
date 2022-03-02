@@ -1,10 +1,8 @@
 FROM jupyter/minimal-notebook
 
-LABEL MAINTAINER "CSC Notebooks Team <notebooks-admin@csc.fi>"
+LABEL org.opencontainers.image.authors="CSC Notebooks Team <notebooks-admin@csc.fi>"
 
 USER root
-
-RUN test -f /bin/env || ln -s /usr/bin/env /bin/env
 
 ENV HOME /home/$NB_USER
 

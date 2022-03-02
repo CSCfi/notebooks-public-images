@@ -4,6 +4,9 @@
 # It is used from gitlab CI pipeline but can be also be used locally.
 #
 
+# bail out on errors
+set -e
+
 if [ -z $1 ] || [ $1 == '-h' ] || [ $1 == '--help' ]; then
   echo
   echo "Usage: $0 image_directory [image_directory ...]"
