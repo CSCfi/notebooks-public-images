@@ -1,4 +1,4 @@
-FROM jupyter/minimal-notebook
+FROM docker.io/jupyter/pyspark-notebook
 
 LABEL org.opencontainers.image.authors="CSC Notebooks Team <notebooks-admin@csc.fi>"
 
