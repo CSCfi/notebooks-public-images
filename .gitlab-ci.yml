@@ -4,6 +4,7 @@ image: docker:git
 stages:
   - build changed images
   - build all images
+  - mirroring
 
 build-changed-image:
   stage: build changed images
@@ -34,3 +35,23 @@ build-all-images:
 
       # build all nb-directories
       ./build_and_push.sh nb-*
+
+mirroring:
+  stage: mirroring
+  image: python:3.8
+  variables:
+    GITHUB_MIRROR: git@github.com:CSCfi/notebooks-public-images.git
+  script:
+    - mkdir mirror_dir
+    - cd mirror_dir
+    - echo "cloning the gitlab.ci repo"
+    - git clone $CI_REPOSITORY_URL notebooks-public-images
+    - cd notebooks-public-images
+    - echo "pushing to github repo"
+    - git checkout master
+    - mkdir ~/.ssh
+    - echo -e "Host github.com\n    StrictHostKeyChecking no\n" >> ~/.ssh/config
+    - eval `ssh-agent -s`
+    - ssh-agent bash -c 'ssh-add /root/ssh/notebooks-public-images-key/id_rsa; git push $GITHUB_MIRROR master'
+  rules:
+    - if: '$CI_COMMIT_REF_NAME == "master"'
