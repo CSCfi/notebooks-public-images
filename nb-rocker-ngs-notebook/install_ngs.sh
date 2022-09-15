@@ -64,6 +64,7 @@ fi
 
 install2.r --error --skipinstalled \
 Rcpp  \
+rmarkdown \
 cluster  \
 factoextra  \
 RColorBrewer  \
@@ -109,10 +110,11 @@ utils  \
 datasets  \
 methods  \
 base  \
+Seurat \
 devtools  \
 BiocManager
 
-R  -e "BiocManager::install(c('dada2', 'bluster', 'sechm', 'ggtree','BiocStyle', 'rebook', 'MultiAssayExperiment', 'Biostrings', 'XVector', 'SingleCellExperiment', 'SummarizedExperiment', 'Biobase', 'GenomicRanges', 'GenomeInfoDb', 'IRanges', 'S4Vectors', 'BiocGenerics', 'MatrixGenerics', 'mia','miaViz','miaSim','TreeSummarizedExperiment','microbiomeDataSets','curatedMetagenomicData','microbiome','phyloseq','ALDEx2','ANCOMBC','Maaslin2','MOFA2','philr','scater','scuttle','scran','tidySummarizedExperiment','lasy/alto'))"
+R  -e "BiocManager::install(c('dada2', 'bluster', 'sechm', 'ggtree','BiocStyle', 'rebook', 'MultiAssayExperiment', 'Biostrings', 'XVector', 'SingleCellExperiment', 'SummarizedExperiment', 'Biobase', 'GenomicRanges', 'GenomeInfoDb', 'IRanges', 'S4Vectors', 'BiocGenerics', 'MatrixGenerics', 'mia','miaViz','miaSim','TreeSummarizedExperiment','microbiomeDataSets','curatedMetagenomicData','microbiome','phyloseq','ALDEx2','ANCOMBC','Maaslin2','MOFA2','philr','scater','scuttle','scran','tidySummarizedExperiment','lasy/alto','DESeq2','apeglm'))"
 
 R  -e "install.packages('ggord', repos = c(fawda123 = 'https://fawda123.r-universe.dev',CRAN = 'https://cloud.r-project.org'))"
 R  -e "devtools::install_github('microbiome/miaTime')"
