@@ -65,6 +65,7 @@ fi
 install2.r --error --skipinstalled \
 Rcpp  \
 rmarkdown \
+markdown \
 cluster  \
 factoextra  \
 RColorBrewer  \
