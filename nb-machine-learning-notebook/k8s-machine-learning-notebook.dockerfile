@@ -25,11 +25,11 @@ RUN echo "Tensorflow" \
     && pip --no-cache-dir install tensorflow
 
 RUN echo "Scikit-Learn" \
-    && pip --no-cache-dir install sklearn
+    && pip --no-cache-dir install scikit-learn
 
 RUN echo "PyTorch, TorchVision and ipywidgets" \
-    && pip --no-cache-dir install torch torchvision \
-       -f https://download.pytorch.org/whl/torch_stable.html \
+    && pip --no-cache-dir install torch torchvision torchaudio torchtext \
+       --extra-index-url https://download.pytorch.org/whl/cpu \
     && pip --no-cache-dir install ipywidgets==7.5.1
 
 RUN echo "Xgboost" \
@@ -41,8 +41,7 @@ RUN echo "Scikit-Image" \
 RUN echo "Graphviz" \
     && pip --no-cache-dir install graphviz
 
-RUN echo "Theano and Keras" \
-    && pip --no-cache-dir install Theano \
+RUN echo "Keras" \
     && pip --no-cache-dir install PyYAML seaborn keras \
     && true
 
