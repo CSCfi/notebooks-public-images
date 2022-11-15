@@ -1,4 +1,4 @@
-FROM jupyter/minimal-notebook
+FROM jupyter/minimal-notebook:2022-11-14
 
 LABEL org.opencontainers.image.authors="CSC Notebooks Team <notebooks-admin@csc.fi>"
 
