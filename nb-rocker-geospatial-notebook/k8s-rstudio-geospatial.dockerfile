@@ -8,3 +8,7 @@ COPY install_geospatial.sh /rocker_scripts/
 RUN /rocker_scripts/install_geospatial.sh
 
 USER rstudio
+
+RUN git clone --branch 2023_course git@github.com:csc-training/r-spatial-course.git
+
+
