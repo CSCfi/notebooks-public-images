@@ -7,3 +7,4 @@ COPY install_geospatial.sh /rocker_scripts/
 # install the custom packages and system dependencies by running the script
 RUN /rocker_scripts/install_geospatial.sh
 
+USER rstudio
