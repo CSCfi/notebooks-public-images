@@ -75,7 +75,8 @@ install2.r --error --skipmissing --skipinstalled -n "$NCPUS" \
     ncf \
     inlmisc \
     elsa \
-    tmap 
+    tmap \
+    ggthemes
     
 #R -e "remotes::install_github('USGS-R/inlmisc', dependencies = TRUE)"
 
