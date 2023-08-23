@@ -1,5 +1,5 @@
 # Use Rocker RStudio as base for your image
-FROM rocker/rstudio:4.2.0
+FROM rocker/rstudio:4.3.1
 
 # copy the desired installation script into docker file system, make sure that you have execute rights to the script
 COPY install_geospatial.sh /rocker_scripts/

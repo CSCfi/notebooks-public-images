@@ -1,4 +1,4 @@
-FROM rocker/rstudio:4.2.0
+FROM rocker/rstudio:4.3.1
 
 ENV PATH=/usr/lib/rstudio-server/bin:$PATH
 
