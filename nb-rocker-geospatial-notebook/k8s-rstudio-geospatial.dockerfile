@@ -7,4 +7,6 @@ COPY install_geospatial.sh /rocker_scripts/
 # install the custom packages and system dependencies by running the script
 RUN /rocker_scripts/install_geospatial.sh
 
-#RUN git clone --branch 2023_course https://github.com/csc-training/r-spatial-course.git /home/rstudio/r-spatial-course && chown -R rstudio:rstudio /home/rstudio/r-spatial-course
+WORKDIR /home/rstudio/
+
+RUN git clone --depth 1 --branch 2023_course https://github.com/csc-training/r-spatial-course.git && chown -R rstudio:rstudio /home/rstudio/r-spatial-course
