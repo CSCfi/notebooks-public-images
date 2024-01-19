@@ -9,6 +9,6 @@ RUN /rocker_scripts/install_geospatial.sh
 
 WORKDIR /home/rstudio/
 
-RUN git clone https://github.com/csc-training/r-spatial-course.git && chown -R rstudio:rstudio /home/rstudio/r-spatial-course
+RUN git clone https://github.com/csc-training/r-spatial-course.git && chown -R rstudio:rstudio /home/rstudio/r-spatial-course 
 
-RUN wget https://raw.githubusercontent.com/csc-training/geocomputing/master/R/STAC/STAC_CSC_example.Rmd && chmod +x STAC_CSC_example.Rmd
+RUN wget https://raw.githubusercontent.com/csc-training/geocomputing/master/R/STAC/STAC_CSC_example.Rmd && chown -R rstudio:rstudio STAC_CSC_example.Rmd && chmod +x STAC_CSC_example.Rmd
